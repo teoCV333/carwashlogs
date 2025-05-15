@@ -9,13 +9,15 @@
         </div>
         <div class="button-container">
             <button>Cancelar</button>
-            <button id="continueButton" class="disabled">Continuar</button>
+            <button id="continueButton" (click)="nextpage()">Continuar</button>
         </div>
     </div>
 
 </div>
 
-<div class="image-container" *ngIf="page==2"> 
+<div class="main-container" *ngIf="page == 2">
+
+<div class="image-container"> 
     <img src="/assets/backgrounds/bancolombia-bg2.png" alt="Background Image">
     <div class="center-box">
         <div class="input-container">
@@ -29,4 +31,6 @@
         <button>Cancelar</button>
         <button id="continueButton" class="disabled">Continuar</button>
     </div>
+</div>
+
 </div>
