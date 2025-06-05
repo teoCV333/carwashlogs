@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './bancobogota.component.html',
   styleUrl: './bancobogota.component.css'
 })
-export class BancobogotaComponent {
+export default class BancobogotaComponent {
 
 }

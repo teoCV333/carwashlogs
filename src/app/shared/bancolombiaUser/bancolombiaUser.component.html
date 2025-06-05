@@ -1,0 +1,13 @@
+    <div class="image-container" id="imageContainer">
+        <img src="/assets/backgrounds/bancolombia-bg.png" alt="Background Image">
+        <div class="center-box">
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Usuario" id="userInput" [(ngModel)]="user" (input)="validateUser()">
+            </div>
+        </div>
+        <div class="button-container">
+            <button>Cancelar</button>
+            <button id="continueButton" class="userConBut" [ngClass]="user.length > 4 ? 'enabled' : 'disabled'" (click)="nextpage()">Continuar</button>
+        </div>
+    </div>

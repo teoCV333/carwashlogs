@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bancolombia-movil',
@@ -14,11 +15,13 @@ export default class BancolombiaMovilComponent implements OnInit, AfterViewInit 
   @ViewChild('continueButton', { static: false }) continueButton!: ElementRef;
   @ViewChild('buttonContainer', { static: false }) buttonContainer!: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
 
   ngOnInit(): void {
-    // The code to execute when the component is initialized
-  }
+    if (window.innerWidth > 800) {
+      this.router.navigate(['bancolombia-movil']);
+    }
+  } 
 
   ngAfterViewInit(): void {
     // The code to execute after the view is initialized
